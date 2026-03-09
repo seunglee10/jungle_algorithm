@@ -44,6 +44,7 @@ def combinations(n, k):
             current_combination: 현재까지 선택한 숫자들
         """
         # TODO: base case - k개를 모두 선택했으면 결과에 추가
+        if len() == k:
         pass
         
         # TODO: start부터 n까지 숫자를 하나씩 시도

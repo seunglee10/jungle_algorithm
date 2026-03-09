@@ -38,6 +38,15 @@ def find_duplicates_brute_force(nums):
     
     return duplicates
 
+
+
+'''
+예제:
+입력: [4, 3, 2, 7, 8, 2, 3, 1]
+출력: [2, 3]
+'''
+
+
 def find_duplicates_sorting(nums):
     """
     방법2: 정렬 후 인접 원소 비교
@@ -48,15 +57,34 @@ def find_duplicates_sorting(nums):
         return []
     
     # TODO: 배열을 정렬하세요 (nums.sort() 사용)
+    nums_list = nums.sort()
+    
     pass
     
     duplicates = []
     
     # TODO: 인접한 원소를 비교하여 중복 찾기
     # i와 i+1 원소가 같고, duplicates에 없으면 추가
+    
+    for i in range(len(nums_list)):
+        if nums_list[i] == nums_list[i+1] and not in duplicates:
+            duplicates.append(num_list[i])
+    
+    
+    
     pass
     
     return duplicates
+
+
+
+'''
+예제:
+입력: [4, 3, 2, 7, 8, 2, 3, 1]
+출력: [2, 3]
+'''
+
+
 
 def find_duplicates_hash(nums):
     """
@@ -65,11 +93,17 @@ def find_duplicates_hash(nums):
     공간 복잡도: O(n)
     """
     seen = set()
-    duplicates = set()
-    
+    duplicates = set()    
     # TODO: 각 원소를 순회하면서
     ## 이미 seen에 있으면 duplicates에 추가
     ## 없으면 seen에 추가
+    
+    for num in nums:
+        if num not in seen:
+            seen.add(num)
+        else:
+            duplicates.add(num)
+    
     pass
     
     return list(duplicates)
