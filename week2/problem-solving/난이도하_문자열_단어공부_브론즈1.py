@@ -39,7 +39,7 @@ alp = list(set(arr))
 arr2 = []
 for alpa in alp:
     arr2.append(arr.count(alpa))
-    
+
 # print(arr2) # [4, 4, 1, 1]
 
 max_alpa = max(arr2)
