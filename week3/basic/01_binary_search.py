@@ -55,6 +55,7 @@ def binary_search(arr, target):
     return -1
 
 
+
 # 테스트 케이스
 if __name__ == "__main__":
     # 테스트 케이스 1
