@@ -72,14 +72,15 @@ DP가 필요한 경우:
 - 자원 할당
 """
 
+
 def fibonacci_memo(n, memo=None):
     """
     메모이제이션을 사용한 피보나치 (하향식 DP)
-    
+
     Args:
         n: 피보나치 인덱스
         memo: 계산 결과를 저장할 딕셔너리
-    
+
     Returns:
         n번째 피보나치 수
     """
@@ -87,21 +88,22 @@ def fibonacci_memo(n, memo=None):
     if memo is None:
         memo = {}
     pass
-    
+
+    # base case
+    # fibonacci(0), fibonacci(1)일 때 경우
+    # f(0) = 0, f(1) = 1
     if n <= 1:
         return n
-    
+
     # TODO: 이미 계산한 값이 memo에 있으면 반환
     if n in memo:
         return memo[n]
-    pass
-    
+
     # TODO: 재귀 호출하여 계산하고 memo에 저장
     memo[n] = fibonacci_memo(n - 1, memo) + fibonacci_memo(n - 2, memo)
+
     return memo[n]
-    pass
-    
-    return memo[n]
+
 
 # 테스트 케이스
 if __name__ == "__main__":
@@ -111,16 +113,14 @@ if __name__ == "__main__":
         result = fibonacci_memo(i)
         print(f"fib({i}) = {result}")
     print()
-    
+
     # 테스트 케이스 2: 큰 수도 빠르게 계산
     print("=== 큰 수 계산 ===")
     n = 50
     result = fibonacci_memo(n)
     print(f"fib({n}) = {result}")
     print()
-    
+
     # 비교: Week1의 재귀 방식은 fib(50)을 계산하기 어려움
     print("참고: 일반 재귀는 fib(40)도 몇 초 걸리지만")
     print("메모이제이션은 fib(100)도 순식간에 계산!")
-
-
