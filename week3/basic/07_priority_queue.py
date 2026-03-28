@@ -36,6 +36,7 @@ import heapq
 def process_emergency_room(patients):
 
     # TODO: 빈 힙 생성
+    # 파이썬에서는 일반 리스트를 힙 처럼 쓸 수 있다.
     heap = []
 
     # TODO: 모든 환자를 힙에 추가 heappush 할껀데 (이름, 우선순위)로 되어있는걸 (우선순위, 이름)으로 바꿔넣어줄꺼임
@@ -43,6 +44,9 @@ def process_emergency_room(patients):
         heapq.heappush(heap, (priority, name))
     pass
 
+    # 2번째 방법
+    # 굳이 pop하지 말고 sort()로 정렬해서 for문 돌려서 만들기
+    heap.sort()
     processed = []
 
     # TODO: 힙이 비어있지 않은 동안 반복
@@ -51,7 +55,7 @@ def process_emergency_room(patients):
     while heap:
         # 힙에서 꺼내기 heappop
         priority, name = heapq.heappop(heap)
-        print("처리: " + name + "(우선순위: " + str(priority) + ")")
+        print("처리: " + name, "(우선순위: " + str(priority) + ")")
         processed.append(name)
 
     pass

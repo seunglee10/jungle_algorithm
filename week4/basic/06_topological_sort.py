@@ -28,31 +28,56 @@
 
 from collections import deque
 
+# 파라미터의 정보를 알아야한다
+# 이 정보를 가지고 함수를 써먹을거니까
+# vertices 는 int, edges는 (x,y) 형태의 튜플이 들어있는 리스트 
 def topological_sort(vertices, edges):
     """
     위상 정렬 (Kahn's Algorithm)
     
     Args:
         vertices: 정점 개수
-        edges: (출발, 도착) 간선 리스트
+        edges: (출발, 도
+        
+        착) 간선 리스트
     
     Returns:
         위상 정렬 순서
     """
     # TODO: 그래프와 진입 차수 초기화
-    pass
+    ''' 아래와 같이 초기화하는거임
+    각 정점마다 연결된 정점들을 담을 리스트가 필요하기 때문에 빈 리스트 만들어두는거임
+    
+    {
+        0 : []
+        1 : []
+        2 : []
+        3 : []
+    }
+    '''
+    graph = {}
+    for i in range(vertices):
+        graph[i] = []
     
     # TODO: 그래프 구성 및 진입 차수 계산
+    
     pass
     
     # TODO: 진입 차수가 0인 정점들을 큐에 추가
-    pass
+    queue = deque()
+    for i in range(vertices):
+        if in_degree[i] == 0:
+            queue.append(i)
     
     result = []
     
     # TODO: 큐가 빌 때까지 반복
+    while queue:
     ## 큐에서 정점 꺼내기
+    vertex = queue.popleft()
+    result.append(vertex)
     ## 인접한 정점들의 진입 차수 감소
+    
     pass
     
     return result

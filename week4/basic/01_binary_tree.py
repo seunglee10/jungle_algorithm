@@ -40,6 +40,7 @@ class TreeNode:
         self.value = value
         self.left = None
         self.right = None
+        self.prev = None
 
 
 def preorder(root):
@@ -111,10 +112,19 @@ if __name__ == "__main__":
     #    / \
     #   4   5
     root = TreeNode(1)
-    root.left = TreeNode(2)
-    root.right = TreeNode(3)
-    root.left.left = TreeNode(4)
-    root.left.right = TreeNode(5)
+    save = root
+    save2 = save
+    print(save2)
+    for i in range(2, 6):
+
+        num = TreeNode(i)
+        save.left = num
+        save.left.prev = save
+        save = save.left
+
+    while save.value != 3:
+        save = save.prev
+    print(save.value)
 
     print("=== 이진 트리 순회 ===")
     print(f"전위 순회: {preorder(root)}")

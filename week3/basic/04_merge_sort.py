@@ -21,52 +21,85 @@
 - 각 부분을 재귀적으로 정렬
 - 정렬된 두 부분을 병합
 """
-    while (index1 != len(arr) and index2 != len(arr2))
-    if arr1[index1] <= arr2[index2]:
-        arr.append(arr1[index1])
-    else index1 += 1
-        arr.append(arr2[index2]) index += 1
-    if index != len(arr1):
-        arr.append(arr1[index:])
-        if index2 != len(arr2):
-            arr.append
+
+# while (index1 != len(arr) and index2 != len(arr2))
+# if arr1[index1] <= arr2[index2]:
+#     arr.append(arr1[index1])
+# else index1 += 1
+#     arr.append(arr2[index2]) index += 1
+# if index != len(arr1):
+#     arr.append(arr1[index:])
+#     if index2 != len(arr2):
+#         arr.append
 
 
+def merge(arr1, arr2):
 
+    arr = []
+    index1 = 0
+    index2 = 0
 
+    while index1 != len(arr1) and index2 != len(arr2):
 
-
-
-# 머지는 합치는 함수
-def merge(arr, left, mid, right):
-    # 왼쪽과 오른쪽으로 나눠야하니까 왼쪽 배열, 오른쪽 배열 새로 만듦
-    # 범위를 left ~ mid / mid+1 ~ right 이렇게 잡을거니까
-    # mid까지 포함할거니까 mid+1로 범위 잡음
-    left_arr = arr[left:mid]
-    right_arr = arr[mid + 1 : right + 1]
-
-
-    # left_arr와 right_arr를 비교하며 작은 값을 arr에 복사
-    while left_idx < len(left_arr) and right_index < len(right_arr):
-        if left_arr[left_idx] <= right_arr[right_idx]:
-            left_arr.append(left_arr[left_idx])
-            left_idx += 1
+        if arr1[index1] <= arr2[index2]:
+            arr.append(arr1[index1])
+            index1 += 1
         else:
-            right_arr.append(right_arr[right_idx])
-            right_idx += 1
+            arr.append(arr2[index2])
+            index2 += 1
 
-    # left_arr에 남은 원소가 있으면 복사
-    while left_idx < len(left_arr)
-        arr[k] = left_arr[i]
-        left_idx += 1
-        
+    if index1 != len(arr1):
+        arr.extend(arr1[index1:])
 
-    # right_arr에 남은 원소가 있으면 복사
-    while right_index < len(right_arr):
-        arr[k] = right_arr[j]
-        right_idx += 1
+    if index2 != len(arr2):
+        arr.extend(arr2[index2:])
 
-    pass
+    return arr
+
+
+def merge_sort(arr):
+
+    if len(arr) <= 1:
+        return arr
+
+    mid = len(arr) // 2
+
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+
+    return merge(left, right)
+
+
+# # 머지는 합치는 함수
+# def merge(arr, left, mid, right):
+#     # 왼쪽과 오른쪽으로 나눠야하니까 왼쪽 배열, 오른쪽 배열 새로 만듦
+#     # 범위를 left ~ mid / mid+1 ~ right 이렇게 잡을거니까
+#     # mid까지 포함할거니까 mid+1로 범위 잡음
+#     left_arr = arr[left:mid]
+#     right_arr = arr[mid + 1 : right + 1]
+
+
+#     # left_arr와 right_arr를 비교하며 작은 값을 arr에 복사
+#     while left_idx < len(left_arr) and right_index < len(right_arr):
+#         if left_arr[left_idx] <= right_arr[right_idx]:
+#             left_arr.append(left_arr[left_idx])
+#             left_idx += 1
+#         else:
+#             right_arr.append(right_arr[right_idx])
+#             right_idx += 1
+
+#     # left_arr에 남은 원소가 있으면 복사
+#     while left_idx < len(left_arr)
+#         arr[k] = left_arr[i]
+#         left_idx += 1
+
+
+#     # right_arr에 남은 원소가 있으면 복사
+#     while right_index < len(right_arr):
+#         arr[k] = right_arr[j]
+#         right_idx += 1
+
+#     pass
 
 
 # 머지소트헬퍼는 쪼개는 함수

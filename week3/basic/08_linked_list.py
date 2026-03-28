@@ -22,7 +22,16 @@
 - print_list(): 모든 노드 출력
 """
 
+"""
+1. 헤드를 넥스트노드에 저장한다
+2. 넥스트노드의 넥스트가 없다면 순회를 끝낸다(끝까지 갔으니까)
+3. 만약에 넥스트노드에 넥스트가 있다면 넥스트노드에 저장해준다(다음 노드로 넘어간다)
+반복문을 돈게 끝까지 갔다는거니까
+넥스트 노드가 끝 노드가 됐으니까 넥스트 노드의 넥스트에 뉴노드를 넣어준다
+"""
 
+
+# Node라는 클래스를 호출했을 때 그 안에 포함되어 있는 함수 실행하는 클래스를 만들꺼다
 class Node:
     """연결 리스트의 노드"""
 
@@ -34,6 +43,7 @@ class Node:
 class LinkedList:
     """단순 연결 리스트"""
 
+    # self는 이름 넣어준다고 생각하면 됨
     def __init__(self):
         self.head = None
 
@@ -42,23 +52,34 @@ class LinkedList:
         new_node = Node(data)
 
         # TODO: 리스트가 비어있으면 head를 new_node로 설정
-        pass
+        if not self.head:
+            self.head = new_node
+            return``
 
         # TODO: 마지막 노드 찾기
-        pass
+        last_node = self.head
+        next_node = self.head.next
+        while True:
+            if not next_node:
+                break
+            last_node = next_node
+            next_node = next_node.next
 
         # TODO: 마지막 노드의 next를 new_node로 설정
-        pass
+        last_node.next = next_node
 
     def print_list(self):
         """리스트의 모든 값 출력"""
         values = []
 
         # TODO: head부터 시작
-        pass
+        values.append(self.head.data)
 
         # TODO: 끝까지 순회하며 값 수집
-        pass
+        next_node = self.head.next
+        while next_node:
+            values.append(next_node.data)
+            next_node = next_node.next
 
         return values
 

@@ -90,6 +90,7 @@ def fibonacci_memo(n, memo=None):
     pass
 
     # base case
+    
     # fibonacci(0), fibonacci(1)일 때 경우
     # f(0) = 0, f(1) = 1
     if n <= 1:
