@@ -20,5 +20,5 @@ result = part_sum[0]
 for i in range(1, len(part_sum)):
     result -= part_sum[i]
 
-print(result)
+
 print(result)
