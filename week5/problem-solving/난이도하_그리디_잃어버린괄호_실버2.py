@@ -6,7 +6,7 @@ n = input().strip()
 parts = n.split("-")
 # print(parts) # ['55', '50+40']
 
-# 
+#
 first_sum = 0
 save = 0
 result = 0
@@ -17,7 +17,8 @@ for part in parts:
 # print(part_sum)
 result = part_sum[0]
 
-for i in range(1,len(part_sum)):
+for i in range(1, len(part_sum)):
     result -= part_sum[i]
-        
+
+print(result)
 print(result)
